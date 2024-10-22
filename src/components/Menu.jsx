@@ -15,7 +15,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import OutlinedFlagOutlinedIcon from '@mui/icons-material/OutlinedFlagOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import { AccountCircleOutlined } from '@mui/icons-material';
+import { AccountCircleOutlined, DarkModeOutlined } from '@mui/icons-material';
 
 function Menu({ darkMode, setDarkMode }) {
     return (
@@ -55,7 +55,7 @@ function Menu({ darkMode, setDarkMode }) {
                 </Login>
 
                 <Hr />
-
+                <Title>Best of Us</Title>
                 <Item>
                     <ExploreOutlinedIcon /> Music
                 </Item>
@@ -87,7 +87,16 @@ function Menu({ darkMode, setDarkMode }) {
                     <HelpOutlineOutlinedIcon /> Help
                 </Item>
                 <Item onClick={() => setDarkMode(!darkMode)}>
-                    <LightModeOutlinedIcon /> Light Mode
+                    {darkMode ? (
+                        <>
+                            <DarkModeOutlined /> Dark Mode
+                        </>
+                    ) : (
+                        <>
+                            <LightModeOutlinedIcon /> Light Mode
+                        </>
+                    )}
+                    {/* {darkMode ? <LightModeOutlinedIcon /> : <DarkModeOutlined />} {darkMode ? 'Light Mode' : 'Dark Mode'} */}
                 </Item>
             </Wrapper>
         </Container>
@@ -98,7 +107,7 @@ export default Menu
 
 const Container = styled.div`
     flex: 1;
-    background-color: ${({ theme }) => theme.bg};
+    background-color: ${({ theme }) => theme.bgLighter};
     height: 100vh;
     color: ${({ theme }) => theme.text};
     font-size: 14px;
@@ -152,4 +161,11 @@ const Button = styled.button`
     display: flex;
     align-items: center;
     gap: 5px;
+`
+
+const Title = styled.h2`
+    font-size: 14px;
+    font-weight: 500;
+    color: #aaaaaa;
+    margin-bottom: 20px;
 `
