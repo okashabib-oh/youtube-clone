@@ -16,15 +16,18 @@ import OutlinedFlagOutlinedIcon from '@mui/icons-material/OutlinedFlagOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import { AccountCircleOutlined, DarkModeOutlined } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 function Menu({ darkMode, setDarkMode }) {
     return (
         <Container>
             <Wrapper>
-                <Logo>
-                    <Img src={YouTubeLogo} />
-                    YouTube
-                </Logo>
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Logo>
+                        <Img src={YouTubeLogo} />
+                        YouTube
+                    </Logo>
+                </Link>
                 <Item>
                     <HomeOutlinedIcon /> Home
                 </Item>
@@ -48,10 +51,12 @@ function Menu({ darkMode, setDarkMode }) {
 
                 <Login>
                     Sign in to like videos, comments, and subscribe.
-                    <Button>
-                        <AccountCircleOutlined />
-                        Login
-                    </Button>
+                    <Link to="/signin" style={{ textDecoration: 'none' }}>
+                        <Button>
+                            <AccountCircleOutlined />
+                            Login
+                        </Button>
+                    </Link>
                 </Login>
 
                 <Hr />
@@ -126,6 +131,7 @@ const Logo = styled.div`
     font-weight: bold;
     margin-bottom: 25px;
     cursor: pointer;
+    color: ${({ theme }) => theme.text};
 `
 
 const Img = styled.img`
@@ -137,7 +143,15 @@ const Item = styled.div`
     align-items: center;
     gap: 20px;
     cursor: pointer;
-    padding: 7.5px 0px;
+    padding: 7.5px 8px;
+    transition: all 250ms;
+
+    &:hover{
+        background-color: ${({ theme }) => theme.soft};
+        border-radius: 10px;
+        transition: all 250ms;
+        margin-left: 5px;
+    }
 `
 
 const Hr = styled.hr`

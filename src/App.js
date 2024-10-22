@@ -6,10 +6,11 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Video from "./pages/Video";
+import SignIn from "./pages/SignIn";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
-  
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Container>
@@ -21,6 +22,7 @@ function App() {
               <Routes>
                 <Route path="/">
                   <Route index element={<Home />} />
+                  <Route path="signin" element={<SignIn />} />
                   <Route path="video">
                     <Route path=":id" element={<Video />} />
                   </Route>
@@ -46,9 +48,6 @@ const Main = styled.div`
 `
 
 const Wrapper = styled.div`
-  /* display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px; */
   color: ${({ theme }) => theme.text};
+  padding: 22px 96px;
 `
