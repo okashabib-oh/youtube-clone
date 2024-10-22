@@ -1,4 +1,4 @@
-import { DownloadOutlined, ReplyOutlined, ShareOutlined, ThumbDownOutlined, ThumbUpOutlined } from '@mui/icons-material'
+import { DownloadOutlined, ReplyOutlined, ThumbDownOutlined, ThumbUpOutlined } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
 import Comments from '../components/Comments'
